@@ -9,11 +9,11 @@ const router = createRouter({
       path: '/',
       name: 'base',
       component: DefaultLayout,
-      redirect: '/home',
+      redirect: '/',
       children: [
         {
-          path: '/home',
-          name: 'home',
+          path: '/',
+          name: '',
           component: HomeView
         }
       ]
