@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vue-app
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: vue-app
+  template:
+    metadata:
+      labels:
+        app: vue-app
+    spec:
+      containers:
+        - name: vue-app
+          image: gcr.io/devops-ynov-lucas/vue-cloudrun@sha256:47b0012dc8dd1276d5bd56172e00060cc90af7f6fba1385242443b03c5994365
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regsecret
